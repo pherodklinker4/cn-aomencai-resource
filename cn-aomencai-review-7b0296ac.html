@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>澳门彩 · 资讯参考页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f2f3f5;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+            color: #1e2a3a;
+            line-height: 1.6;
+            padding: 30px 20px 60px;
+        }
+
+        .page {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        /* 首页横幅 hero */
+        .hero {
+            background: #ffffff;
+            border-radius: 24px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.03), 0 2px 6px rgba(0, 0, 0, 0.02);
+            padding: 60px 50px 50px;
+            margin-bottom: 40px;
+            border: 1px solid #e4e7ec;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 500;
+            letter-spacing: 0.02em;
+            color: #0a1c30;
+            margin-bottom: 14px;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto 20px;
+            font-weight: 400;
+            border-bottom: 1px solid #e0e4ea;
+            padding-bottom: 20px;
+        }
+
+        .hero .lede {
+            font-size: 1rem;
+            color: #3b4a5c;
+            background: #f7f9fc;
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 40px;
+            border: 1px solid #dde1e9;
+        }
+
+        /* 卡片通用 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e2e6ee;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 36px 40px;
+            margin-bottom: 32px;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+        }
+
+        .card h2 {
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: #14273e;
+            margin-bottom: 20px;
+            border-left: 4px solid #8b9bb0;
+            padding-left: 18px;
+        }
+
+        .card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #1f3349;
+            margin-top: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #2c3e4f;
+            margin-bottom: 18px;
+            font-size: 0.98rem;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inset-list {
+            list-style: none;
+            margin: 16px 0 20px;
+        }
+
+        .inset-list li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: #2d4054;
+            font-size: 0.98rem;
+        }
+
+        .inset-list li::before {
+            content: "—";
+            position: absolute;
+            left: 4px;
+            color: #7a8b9f;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 30px;
+            margin: 16px 0 8px;
+        }
+
+        .faq-item {
+            border-bottom: 1px dashed #d5dce5;
+            padding-bottom: 14px;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #14273e;
+            margin-bottom: 4px;
+        }
+
+        .faq-item .a {
+            color: #47586b;
+            font-size: 0.95rem;
+        }
+
+        .link-sentence {
+            background: #f6f8fb;
+            padding: 22px 30px;
+            border-radius: 14px;
+            border: 1px solid #dce1ea;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #1f3248;
+        }
+
+        .link-sentence a {
+            color: #1d4a7a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #bcc8da;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .link-sentence a:hover {
+            color: #0b2b4b;
+            border-bottom-color: #0b2b4b;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 48px;
+            padding: 28px 20px 10px;
+            color: #546474;
+            font-size: 0.9rem;
+            border-top: 1px solid #d8dee7;
+        }
+
+        .footer-note a {
+            color: #2b4e74;
+            text-decoration: none;
+            border-bottom: 1px dotted #a8b9cf;
+        }
+
+        .footer-note a:hover {
+            border-bottom-style: solid;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            body {
+                padding: 16px 12px 40px;
+            }
+
+            .hero {
+                padding: 36px 22px 30px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .card {
+                padding: 26px 20px;
+            }
+
+            .card h2 {
+                font-size: 1.3rem;
+                padding-left: 12px;
+            }
+
+            .faq-grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+
+            .link-sentence {
+                padding: 18px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .card {
+                padding: 22px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 首页横幅 -->
+    <header class="hero">
+        <h1>澳门彩 · 参照笔记</h1>
+        <div class="sub">日常查询 · 对照 · 延伸阅读</div>
+        <div class="lede">一份面向信息整理的简洁记录</div>
+    </header>
+
+    <!-- 背景说明 / 切入 -->
+    <section class="card">
+        <h2>从查询到对照</h2>
+        <p>在浏览资讯或整理数据时，人们常常需要快速定位特定主题的过往信息。澳门彩作为一个被多次提及的概念，频繁出现在各类统计、历史记录与讨论中。本页以杂志式的条目结构，将分散的背景、特点与常见疑问加以归纳，便于日常检索与横向对比。</p>
+        <p>内容取材自公开可得的资料与一般性常识，不涉及任何内部分析或趋势预测。所有引用均保持客观描述，不做价值判断。</p>
+    </section>
+
+    <!-- 三段自然介绍：特点 + 场景 + 延伸阅读摘要 -->
+    <section class="card">
+        <h2>特点与参考框架</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; margin-top: 6px;">
+            <div style="flex: 1 1 200px; min-width: 180px;">
+                <h3>信息密度</h3>
+                <p>条目采用短段落与列表形式，每项聚焦一个具体侧面，减少冗余。适合快速浏览与对照。</p>
+            </div>
+            <div style="flex: 1 1 200px; min-width: 180px;">
+                <h3>结构化标签</h3>
+                <p>利用小标题、分隔线与列表符号，让不同维度的内容一目了然。页面布局保持一致的视觉节奏。</p>
+            </div>
+            <div style="flex: 1 1 200px; min-width: 180px;">
+                <h3>轻量卡片</h3>
+                <p>浅灰背景、细腻边框与柔和阴影，降低视觉负担，同时保持内容的可读性与有序性。</p>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 32px;">常见使用场景</h3>
+        <ul class="inset-list">
+            <li>日常信息查阅：快速定位澳门彩相关的基本定义与背景。</li>
+            <li>资料对照：将不同来源的表述并置，辅助理解上下文。</li>
+            <li>延伸阅读索引：通过关键词与摘要，决定是否进一步查阅详细资料。</li>
+            <li>个人笔记整理：作为结构化参考框架，补充自己的观察。</li>
+        </ul>
+
+        <h3 style="margin-top: 28px;">延伸阅读摘要</h3>
+        <p>以下摘录自一般性公开资料中的常见表述（非官方定义，仅作参考）：</p>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <div class="q">澳门彩的起源脉络</div>
+                <div class="a">多与当地历史中的博彩业开放及文化演变有关，早期以实体形式存在，后逐步形成多种记录方式。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">数据公开性与获取</div>
+                <div class="a">部分历史数据可通过公开渠道获取，但需要注意版本与解读角度。建议多方比对。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">分类与术语</div>
+                <div class="a">不同时期、不同来源使用的分类方式存在差异，查阅时需留意上下文定义。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">常见混淆点</div>
+                <div class="a">澳门彩与澳门其他同类概念在名称上有相似之处，实际涵盖范围与统计口径可能不同。</div>
+            </div>
+        </div>
+
+        <!-- 自然嵌入链接的句子 -->
+        <div class="link-sentence">
+            如需进一步浏览相关资讯与背景，可参考 <a href="https://cn-aomencai.com">澳门彩</a> 上的内容索引，页面提供基础条目与分类导航。
+        </div>
+    </section>
+
+    <!-- 第三段卡片：FAQ 摘要 + 提示 -->
+    <section class="card">
+        <h2>简释与提示</h2>
+        <p>在查阅过程中，以下几条摘要可帮助快速建立认知框架：</p>
+        <ul class="inset-list">
+            <li>澳门彩这一概念常出现在历史回顾与统计概述中，并非单一固定实体，而是指代一类具有地域特征的记录体系。</li>
+            <li>不同文本中对该主题的界定可能略有出入，建议以原始出处为准。</li>
+            <li>本页不提供任何形式的数据预测、购买建议或倾向性评论，仅作整理与索引用途。</li>
+            <li>若需获取更完整的资料，可直接浏览 <a href="https://cn-aomencai.com" style="color: #1d4a7a; text-decoration: underline; text-underline-offset: 3px;">澳门彩</a> 的相关栏目，自行判断内容相关性。</li>
+        </ul>
+        <p style="margin-top: 18px; font-size: 0.95rem; color: #4a5d72;">最后提示：所有信息均来自公开渠道，阅读时请结合自身需求与判断，保持理性参考态度。</p>
+    </section>
+
+    <!-- 页尾访问提示 -->
+    <footer class="footer-note">
+        <p>页面内容仅供一般性参考 · 基于公开资料整理 · 随时可更新</p>
+        <p style="margin-top: 8px;">更多信息请访问 <a href="https://cn-aomencai.com">澳门彩</a></p>
+        <p style="margin-top: 18px; color: #7a8b9f; font-size: 0.8rem;">杂志式摘要 · 简洁 · 对照向</p>
+    </footer>
+
+</div>
+</body>
+</html>
